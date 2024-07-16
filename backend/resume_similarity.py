@@ -8,7 +8,7 @@ from nltk.tokenize import word_tokenize
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-API_KEY = ''
+API_KEY = 'j886ghgh23gh4j23g5cg34g'
 
 if 'API_KEY' not in locals() or (not API_KEY):
     cprint('NO API KEY FOUND. ADD api key with variable `API_KEY = <YOUR_API_KEY>`', color = 'red')

@@ -29,6 +29,10 @@ def text_sentiment():
         },
         headers={'api-key': '8b3f2d35-c115-4059-9e68-d14a7099659e'}
     )
-    print(r.json()['output'])
+    response = r.json()
+    if 'output' in response:
+        print(response['output'])
+    else:
+        print("Key 'output' not found in the response")
 
 text_sentiment()

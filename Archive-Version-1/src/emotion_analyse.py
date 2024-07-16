@@ -8,8 +8,8 @@ import numpy as np
 import os
 
 def emotion_analyse():
-    face_classifier = cv2.CascadeClassifier('D:\\projects\\aa\\big-projects\\interview-vedio-analysis\\src\\haarcascade_frontalface_default.xml')
-    classifier =load_model('D:\\projects\\aa\\big-projects\\interview-vedio-analysis\\src\\Emotion_little_vgg.h5')
+    face_classifier = cv2.CascadeClassifier('D:\\ram-dev\\github\\Interview-Video-Analysis\\Archive-Version-1\\src\\haarcascade_frontalface_default.xml')
+    classifier =load_model('D:\\ram-dev\\github\\Interview-Video-Analysis\\Archive-Version-1\\src\\Emotion_little_vgg.h5')
     #classifier = torch.load('C:\\Users\\DELL\\Desktop\\emotion_test\\Emotion_little_vgg.h5')
     class_labels = ['Angry','Happy','Neutral','Sad','Surprise']
 

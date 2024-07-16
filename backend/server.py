@@ -1,4 +1,5 @@
 import os
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 from flask import Flask, request, session, make_response, render_template, send_from_directory
 from flask_cors import CORS, cross_origin
 
@@ -7,7 +8,7 @@ from store import task_store
 from job_manager import job_manager
 from resume_similarity import start_similary
 from speech_analyzer import analize_audio
-from video_analyzer import emotion_analyse
+# from video_analyzer import emotion_analyse
 from utils import cprint, unique_filename
 
 app = Flask(__name__)
@@ -293,15 +294,15 @@ def serverInterviewVideo():
     return send_from_directory(*os.path.split(file_path), mimetype='video/webm')
 
 
-@app.route('/analyzeCandidateInterview', methods = ['GET'])
-@cross_origin(supports_credentials=True)
-def analyzeCandidateInterview():
-    file_path = request.args.get('filePath', None)
-    if not file_path:
-        return {'msg': 'File Path not found'}, 400
-    job_manager.terminate_all()
-    task_id = job_manager.add_job(emotion_analyse, file_path, attach_handler = True)
-    return task_id
+# @app.route('/analyzeCandidateInterview', methods = ['GET'])
+# @cross_origin(supports_credentials=True)
+# def analyzeCandidateInterview():
+#     file_path = request.args.get('filePath', None)
+#     if not file_path:
+#         return {'msg': 'File Path not found'}, 400
+#     job_manager.terminate_all()
+#     task_id = job_manager.add_job(emotion_analyse, file_path, attach_handler = True)
+#     return task_id
     
     
 @app.route('/analizeCanadidateAudio', methods = ['GET'])

@@ -2,13 +2,17 @@ import pymongo
 from uuid import uuid1
 from utils import cprint
 from datetime import datetime
+from urllib.parse import quote_plus
 
 unique_id = lambda : str(uuid1())
 
 class Mongo:
     def __init__(self, db_name, init_function = None):
         cprint('Mongo Database initialised', color = 'yellow')
-        self.db = pymongo.MongoClient()[db_name]
+        username = quote_plus('admin')
+        password = quote_plus('Admin@123')
+        self.db = pymongo.MongoClient(f'mongodb+srv://{username}:{password}@jaishreeram.26qvur0.mongodb.net/?retryWrites=true&w=majority&appName=JAISHREERAM')[db_name]
+        cprint('Mongo Database connected successfully', color = 'green')
 
         if init_function != None:
             init_function(self.db)

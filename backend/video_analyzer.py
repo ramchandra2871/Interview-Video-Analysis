@@ -10,8 +10,8 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing import image
 
 
-face_classifier = cv2.CascadeClassifier('support\\haarcascade_frontalface_default.xml')
-classifier =load_model('support\\Emotion_little_vgg.h5')
+face_classifier = cv2.CascadeClassifier('support/haarcascade_frontalface_default.xml')
+classifier = load_model('support/Emotion_little_vgg.h5')
 stopwords = set(stopwords.words('english'))
 
 def emotion_analyse(file_path, handler):
